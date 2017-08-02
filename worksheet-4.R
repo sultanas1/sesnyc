@@ -10,17 +10,9 @@ response <- data.frame(
 
 library(tidyr)
 
-df <- gather(...)
+df <- gather(response, key = "factor",
+              value = "response",-trial)
 
-counts <- data.frame(
-  site = ...,
-  species = ...,
-  n = c(2, 341, 7, 42, 0, 289)
-)
-
-counts_spread <- ...(counts,
-			...,
-			...)
 
 ## Exercise 1
 
@@ -43,9 +35,10 @@ dbDisconnect(...)
 ## Subsetting and sorting
 
 library(dplyr)
-animals_1990_winter <- filter(...,
-                              ...,
-                              ...)
+animals_1990_winter <- filter(animals,
+                              year==1990,
+                              month%in% 1:3)
+
 
 animals_1990_winter <- select(animals_1990_winter, ...)
 
@@ -101,5 +94,13 @@ species_month_prop <- ...
 
 pivot <- ...
   spread(month, prop, fill = 0)
+  
 
 dbDisconnect(con)
+animals <- read.csv("data/animals.csv")
+library(dplyr)
+animals_1990_winter <- filter(animals,
+                              year == 1990,
+                              month %in% 1:3)
+
+

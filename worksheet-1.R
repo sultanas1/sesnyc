@@ -1,7 +1,7 @@
 # create a shortcut to your data
 
 file.symlink(
-  from = ...,
+  from = "../data",
   to = 'data'
 )
 
